@@ -1,0 +1,346 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════
+   LIGHT THEME — BCP Banco de Crédito del Perú
+═══════════════════════════════════════════════ */
+:root {
+  --color-bg:          #f0f4ff;
+  --color-bg-alt:      #f8faff;
+  --color-bg-card:     #ffffff;
+  --color-bg-nav:      rgba(255,255,255,0.97);
+  --color-border:      #dce8f5;
+  --color-border-soft: #eef4fb;
+
+  --color-text:        #001a4d;
+  --color-text-muted:  #0066cc;
+  --color-text-soft:   #7aaee0;
+
+  --color-primary:     #003087;
+  --color-primary-h:   #002266;
+  --color-primary-lt:  #dce8f5;
+  --color-primary-txt: #003087;
+
+  --color-accent:      #F47920;
+  --color-accent-lt:   #fff0e6;
+  --color-success:     #059669;
+  --color-success-lt:  #d1fae5;
+  --color-warning:     #FFB81C;
+  --color-warning-lt:  #fff8e1;
+  --color-danger:      #dc2626;
+  --color-danger-lt:   #fee2e2;
+
+  --shadow-card:  0 2px 8px rgba(0,48,135,.07), 0 8px 24px rgba(0,48,135,.05);
+  --shadow-float: 0 8px 32px rgba(0,48,135,.16);
+  --shadow-nav:   0 1px 0 rgba(0,48,135,.07);
+  --shadow-lg:    0 16px 48px rgba(0,48,135,.14);
+  --shadow-glow:  0 0 24px rgba(0,48,135,.30);
+
+  --hero-from:    #001a4d;
+  --hero-mid:     #003087;
+  --hero-to:      #0066cc;
+
+  --sidebar-bg:   #001a4d;
+  --sidebar-item: rgba(255,255,255,0.06);
+  --sidebar-active: rgba(255,184,28,0.18);
+  --sidebar-text: rgba(255,255,255,0.55);
+  --sidebar-text-active: #ffffff;
+}
+
+/* ═══════════════════════════════════════════════
+   DARK THEME — BCP (paleta oficial modo oscuro)
+   Azul:    #0052FF  Naranja: #FF6A00
+   Fondo:   #0D1117  Card:    #1A1F27
+   Neutros: #161B22  #1F2630  #2A313C  #8B9498
+═══════════════════════════════════════════════ */
+.dark {
+  /* Fondos */
+  --color-bg:          #0D1117;
+  --color-bg-alt:      #161B22;
+  --color-bg-card:     #1A1F27;
+  --color-bg-nav:      rgba(13,17,23,0.97);
+  --color-border:      #1F2630;
+  --color-border-soft: #2A313C;
+
+  /* Texto */
+  --color-text:        #E6EDF3;
+  --color-text-muted:  #8B9498;
+  --color-text-soft:   #2A313C;
+
+  /* Primario — azul BCP dark */
+  --color-primary:     #0052FF;
+  --color-primary-h:   #2D7FFF;
+  --color-primary-lt:  rgba(0,82,255,0.15);
+  --color-primary-txt: #4D9FFF;
+
+  /* Acento — naranja BCP dark */
+  --color-accent:      #FF6A00;
+  --color-accent-lt:   rgba(255,106,0,0.15);
+
+  /* Semánticos */
+  --color-success:     #00C389;
+  --color-success-lt:  rgba(0,195,137,0.15);
+  --color-warning:     #F5A623;
+  --color-warning-lt:  rgba(245,166,35,0.15);
+  --color-danger:      #FF4D4F;
+  --color-danger-lt:   rgba(255,77,79,0.15);
+
+  /* Sombras */
+  --shadow-card:  0 2px 8px rgba(0,0,0,.6), 0 8px 24px rgba(0,0,0,.45);
+  --shadow-float: 0 8px 32px rgba(0,0,0,.7);
+  --shadow-nav:   0 1px 0 rgba(255,255,255,.04);
+  --shadow-lg:    0 16px 48px rgba(0,0,0,.7);
+  --shadow-glow:  0 0 24px rgba(0,82,255,.40);
+
+  /* Hero */
+  --hero-from:    #0D1117;
+  --hero-mid:     #0D1A3A;
+  --hero-to:      #0D2B6B;
+
+  /* Sidebar */
+  --sidebar-bg:          #0D1117;
+  --sidebar-item:        rgba(255,255,255,0.04);
+  --sidebar-active:      rgba(0,82,255,0.20);
+  --sidebar-text:        rgba(139,148,152,0.80);
+  --sidebar-text-active: #E6EDF3;
+}
+
+/* ═══════════════════════════════════════════════
+   BASE
+═══════════════════════════════════════════════ */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   THEME UTILITIES
+═══════════════════════════════════════════════ */
+@layer utilities {
+
+  /* ── Backgrounds ── */
+  .bg-theme          { background-color: var(--color-bg); }
+  .bg-theme-alt      { background-color: var(--color-bg-alt); }
+  .bg-theme-card     { background-color: var(--color-bg-card); }
+  .bg-theme-nav      { background-color: var(--color-bg-nav); }
+  .bg-primary        { background-color: var(--color-primary); }
+  .bg-primary-lt     { background-color: var(--color-primary-lt); }
+  .bg-accent-lt      { background-color: var(--color-accent-lt); }
+  .bg-success-lt     { background-color: var(--color-success-lt); }
+  .bg-danger-lt      { background-color: var(--color-danger-lt); }
+  .bg-warning-lt     { background-color: var(--color-warning-lt); }
+
+  /* ── Borders ── */
+  .border-theme      { border-color: var(--color-border); }
+  .border-theme-soft { border-color: var(--color-border-soft); }
+
+  /* ── Text ── */
+  .text-theme        { color: var(--color-text); }
+  .text-theme-muted  { color: var(--color-text-muted); }
+  .text-theme-soft   { color: var(--color-text-soft); }
+  .text-primary      { color: var(--color-primary-txt); }
+  .text-accent       { color: var(--color-accent); }
+  .text-success      { color: var(--color-success); }
+  .text-danger       { color: var(--color-danger); }
+  .text-warning      { color: var(--color-warning); }
+
+  /* ── Shadows ── */
+  .shadow-card       { box-shadow: var(--shadow-card); }
+  .shadow-float      { box-shadow: var(--shadow-float); }
+  .shadow-theme-lg   { box-shadow: var(--shadow-lg); }
+  .shadow-glow       { box-shadow: var(--shadow-glow); }
+
+  /* ── Sidebar ── */
+  .bg-sidebar        { background-color: var(--sidebar-bg); }
+  .sidebar-item      { background-color: var(--sidebar-item); }
+  .sidebar-active    { background-color: var(--sidebar-active); }
+  .text-sidebar      { color: var(--sidebar-text); }
+  .text-sidebar-active { color: var(--sidebar-text-active); }
+
+  /* ── Hero gradient ── */
+  .hero-gradient {
+    background: linear-gradient(135deg, var(--hero-from) 0%, var(--hero-mid) 50%, var(--hero-to) 100%);
+  }
+
+  /* ── Glass ── */
+  .glass {
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .glass-card {
+    background: rgba(255,255,255,0.10);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+
+  /* ── Gradient text ── */
+  .text-gradient {
+    background: linear-gradient(135deg, #818cf8, #c084fc);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #fbbf24, #f59e0b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* ── Card with floating icon ── */
+  .card-float-icon {
+    position: relative;
+    padding-top: 2.5rem;
+  }
+  .card-float-icon .float-icon {
+    position: absolute;
+    top: -1.25rem;
+    left: 1.5rem;
+    z-index: 10;
+  }
+
+  /* ── Hover lift ── */
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1), box-shadow 0.3s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* ── Hover scale ── */
+  .hover-scale {
+    transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
+  }
+  .hover-scale:hover { transform: scale(1.06); }
+
+  /* ── Glow button ── */
+  .btn-glow {
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+  .btn-glow:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-1px);
+  }
+  .btn-glow:active { transform: translateY(0); }
+
+  /* ── Pulse ring ── */
+  .pulse-ring {
+    position: relative;
+  }
+  .pulse-ring::after {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    border: 2px solid var(--color-primary);
+    opacity: 0;
+    animation: pulse-ring 2s ease-out infinite;
+  }
+
+  /* ── Shimmer ── */
+  .shimmer {
+    background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255,255,255,0.08) 50%,
+      transparent 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  /* ── Animations ── */
+  .animate-float       { animation: float 6s ease-in-out infinite; }
+  .animate-float-delay { animation: float 6s ease-in-out 2s infinite; }
+  .animate-float-slow  { animation: float 9s ease-in-out 1s infinite; }
+  .animate-pulse-slow  { animation: pulse-slow 4s ease-in-out infinite; }
+  .animate-slide-up    { animation: slide-up 0.4s cubic-bezier(.34,1.56,.64,1) both; }
+  .animate-fade-in     { animation: fade-in 0.3s ease both; }
+}
+
+/* ═══════════════════════════════════════════════
+   KEYFRAMES
+═══════════════════════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.6; }
+}
+@keyframes pulse-ring {
+  0%   { opacity: 0.6; transform: scale(1); }
+  100% { opacity: 0;   transform: scale(1.4); }
+}
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes slide-down-out {
+  from { opacity: 1; transform: translateY(0); }
+  to   { opacity: 0; transform: translateY(16px); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.88) translateY(24px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+@keyframes shimmer-sweep {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+
+/* Modal animation utility */
+.animate-modal-in {
+  animation: modal-in 0.35s cubic-bezier(.34,1.56,.64,1) both;
+}
+
+/* Mobile modal slides up from bottom */
+@media (max-width: 639px) {
+  .animate-modal-in {
+    animation: modal-slide-up 0.4s cubic-bezier(.34,1.56,.64,1) both;
+  }
+}
+@keyframes modal-slide-up {
+  from { opacity: 0; transform: translateY(100%); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════ */
+::-webkit-scrollbar       { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--color-text-soft); }
+
+/* ═══════════════════════════════════════════════
+   SMOOTH THEME TRANSITIONS
+═══════════════════════════════════════════════ */
+*, *::before, *::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 220ms;
+  transition-timing-function: ease;
+}
+/* Exclude animation-heavy elements */
+.card-hover, .btn-glow, .hover-scale,
+.animate-float, .animate-float-delay, .animate-float-slow,
+[class*="animate-"] {
+  transition-property: transform, opacity, box-shadow;
+}
